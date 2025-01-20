@@ -26,7 +26,7 @@ import java.util.Map;
  *
  * @author Nicola
  */
-@WebServlet(name = "Controller", urlPatterns = {""})
+@WebServlet(name = "Controller", urlPatterns = {"", "/admin"})
 public class Controller extends HttpServlet {
 
     private orderDao orderDao;

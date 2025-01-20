@@ -1,6 +1,8 @@
 com\mycompany\filter\errorFilter.class
+com\mycompany\filter\adminFilter.class
 com\mycompany\model\Order.class
 com\mycompany\dao\orderDao.class
+com\mycompany\filter\ResponseWrapper.class
 com\mycompany\ctrl\DatabaseController.class
 com\mycompany\Util\PageOrder.class
 com\mycompany\model\UserData.class
