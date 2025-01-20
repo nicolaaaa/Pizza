@@ -4,10 +4,18 @@
  */
 package com.mycompany.model;
 
-/**
- *
- * @author Nicola
- */
+//import lombok.Data;
+//import lombok.NoArgsConstructor;
+//import lombok.AllArgsConstructor;
+//
+///**
+// * UserData model class with Lombok
+// *
+// * @author Nicola
+// */
+//@Data // Generates getters, setters, equals, hashCode, and toString methods
+//@NoArgsConstructor // Generates a no-arguments constructor
+//@AllArgsConstructor // Generates a constructor with all fields as arguments
 public class UserData {
 
     private String firstname;
@@ -35,11 +43,18 @@ public class UserData {
     public UserData() {
     }
 
+    public UserData(String firstname, String lastname, String adress, String session, String ipadress) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.adress = adress;
+        this.session = session;
+        this.ipAdress = ipadress;
+    }
+
     public UserData(String firstname, String lastname, String adress) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.adress = adress;
-
     }
 
     @Override

@@ -60,5 +60,7 @@
 
         </div>
         <%@ include file="jspf/changeMenu.jspf" %>
+        <%@ include file="jspf/orderOverview.jspf" %>
+
     </body>
 </html>

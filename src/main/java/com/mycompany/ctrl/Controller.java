@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.github.javafaker.Faker;
+import com.mycompany.dao.orderDao;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Locale;
@@ -27,6 +28,15 @@ import java.util.Map;
  */
 @WebServlet(name = "Controller", urlPatterns = {""})
 public class Controller extends HttpServlet {
+
+    private orderDao orderDao;
+
+    @Override
+    public void init() throws ServletException {
+
+        super.init();
+        orderDao = new orderDao();
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -71,8 +81,17 @@ public class Controller extends HttpServlet {
             dispatcher.forward(request, response);
         } else if (page.equals("end")) {
 
+            orderDao.save((Order) request.getSession().getAttribute("order"));
             RequestDispatcher dispatcher = request.getRequestDispatcher(
                     "/WEB-INF/end.jsp");
+            dispatcher.forward(request, response);
+        } else if (page.equals("orderOverview")) {
+
+            ArrayList<Order> orders = orderDao.getOrders();
+            request.getSession().setAttribute("orders", orders);
+            out.print(orders.toString());
+            RequestDispatcher dispatcher = request.getRequestDispatcher(
+                    "/WEB-INF/orderOverview.jsp");
             dispatcher.forward(request, response);
         }
     }
@@ -198,9 +217,10 @@ public class Controller extends HttpServlet {
     private void addUserDataToOrder(HttpServletRequest request) {
         if (request.getParameter("firstname") != null && !request.getParameter("firstname").trim().isEmpty()) {
 
-            UserData currentUser = new UserData(request.getParameter("firstname"), request.getParameter("lastname"), request.getParameter("adress"));
-            currentUser.setSession(request.getSession().getId());
-            currentUser.setIpAdress(request.getRemoteAddr());
+            UserData currentUser = new UserData(request.getParameter("firstname"), request.getParameter("lastname"), request.getParameter("adress"), request.getSession().getId(), request.getRemoteAddr());
+
+            Order order = (Order) request.getSession().getAttribute("order");
+            order.setCustomer(currentUser);
 
             request.getSession().setAttribute("currentUser", currentUser);
         }

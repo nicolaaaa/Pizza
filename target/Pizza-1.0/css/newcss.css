@@ -399,3 +399,50 @@ h1 {
     left: 10px; /* Distance from the left of the page */
     z-index: 1000; /* Ensure it stays on top of other elements */
 }
+
+.order-overview-container {
+    position: fixed; /* Fix the position relative to the viewport */
+    bottom: 10px; /* Distance from the bottom of the page */
+    right: 10px; /* Distance from the left of the page */
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table header style */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Table row style */
+td {
+    background-color: #fff;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row colors for better readability */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for rows */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Style for the "Food Items" column */
+td > .food-items {
+    display: block;
+    padding-left: 10px;
+}

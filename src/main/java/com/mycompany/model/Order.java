@@ -18,6 +18,15 @@ public class Order {
 
     private ArrayList<FoodItem> OrderItems;
     private double OrderPrice;
+    private UserData customer;
+
+    public void setCustomer(UserData customer) {
+        this.customer = customer;
+    }
+
+    public UserData getCustomer() {
+        return customer;
+    }
 
     public ArrayList<FoodItem> getOrderItems() {
         return OrderItems;
