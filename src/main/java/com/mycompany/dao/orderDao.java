@@ -125,7 +125,7 @@ public class orderDao extends DatabaseController {
         }
         System.out.println(String.valueOf(userId));
 
-        query = "INSERT INTO ORDER (userID, status) VALUES (?, ?)";
+        query = "INSERT INTO pizzaorder (userID, status) VALUES (?, ?)";
         try {
             // Prepare the statement and enable returning generated keys
             pstmt = getConnection().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
