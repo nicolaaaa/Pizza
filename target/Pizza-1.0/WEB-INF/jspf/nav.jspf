@@ -1,0 +1,25 @@
+<%--
+    Document   : navigation
+    Created on : Jan 12, 2025, 4:59:32?PM
+    Author     : Nicola
+--%>
+<%@ page pageEncoding="UTF-8" %>
+
+<img class="nav-image" src="${pageContext.request.contextPath}/images/pizza.svg" alt="Placeholder Image">
+
+<img class="nav-item <c:choose>
+     <c:when test="${currentPage == 'foodItems' || currentPage== null}">active</c:when>
+<c:otherwise>done</c:otherwise>
+</c:choose>" src="${pageContext.request.contextPath}/images/slice_left.svg" alt="Placeholder Image">
+
+<img class="nav-item <c:choose>
+     <c:when test="${currentPage == 'userData'}">active</c:when>
+<c:when test="${currentPage == 'finish' || currentPage == 'end'}">done</c:when>
+<c:otherwise>disabled</c:otherwise>
+</c:choose>" src="${pageContext.request.contextPath}/images/slice_top.svg" alt="Placeholder Image">
+
+<img class="nav-item <c:choose>
+     <c:when test="${currentPage == 'finish'}">active</c:when>
+<c:when test="${currentPage == 'end'}">done</c:when>
+<c:otherwise>disabled</c:otherwise>
+</c:choose>" src="${pageContext.request.contextPath}/images/slice_bottom.svg" alt="Placeholder Image">

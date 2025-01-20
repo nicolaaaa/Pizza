@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="150 150 500 500" width="500" height="500" fill="none" stroke-width="1px">
+
+  <!-- Pizza slice unten -->
+<path d="M 250 250 L345 249.9999999981393 A 95 95 0 0 1 202.50000000214857 332.27241336076213z" fill="#F4A460" stroke="#D2691E" stroke-width="4" />
+<path d="M 250 250 L330 249.99999999843308 A 80 80 0 0 1 210.00000000180933 319.2820323037997z" fill="#FF6347"/>
+<path d="M 250 250 L320 249.99999999862897 A 70 70 0 0 1 215.00000000158315 310.62177826582473z" fill="#FFD700"/>
+  <circle cx="285" cy="285" r="12" fill="#8B0000" />
+  <circle cx="265" cy="295" r="5" fill="#228B22" />
+
+
+
+</svg>
+
+

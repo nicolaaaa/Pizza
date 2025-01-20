@@ -1,0 +1,49 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="button-row">
+    <!--<form action="Controller">-->
+    <c:choose>
+        <c:when test="${currentPage == 'foodItems' || currentPage== null}">
+            <button class="modern-button disabled" type="submit">Zurück</button>
+        </c:when>
+        <c:when test="${currentPage == 'userData'}">
+            <button class="modern-button" type="submit"  name="page" value="foodItems">Zurück</button>
+        </c:when>
+        <c:otherwise>
+            <button class="modern-button" type="submit"  name="page" value="userData">Zurück</button>
+        </c:otherwise>
+    </c:choose>
+    <!--</form>-->
+    <!--<form action="Controller">-->
+    <c:choose>
+        <c:when test="${currentPage == 'foodItems' || currentPage== null}">
+            <button class="modern-button" type="submit" name="page" value="userData">Weiter</button>
+        </c:when>
+
+        <c:when test="${currentPage == 'userData'}">
+            <button class="modern-button" type="submit" name="page" value="finish">Weiter</button>
+        </c:when>
+
+        <c:otherwise>
+            <button class="modern-button" type="submit" name="page" value="end">Bestellung abschicken</button>
+        </c:otherwise>
+    </c:choose>
+
+</div>
+
+
+<!--
+                        <input type="hidden" name="page" value="<c:choose>
+                     <c:when test="${currentPage == 'foodItems'}">nix</c:when>
+                     <c:when test="${currentPage == 'userData'}">foodItems</c:when>
+                     <c:otherwise>userData</c:otherwise>
+                    </c:choose>"/>
+                        <button class="modern-button" type="submit">Zurück</button></form>
+                    <form action="Controller">
+                      <input type="hidden" name="page" value="<c:choose>
+                     <c:when test="${currentPage == 'foodItems'}">userData</c:when>
+                     <c:otherwise>finish</c:otherwise>
+                     </c:choose>"/>
+                        <button class="modern-button" type="submit">Weiter</button></form>-->
+

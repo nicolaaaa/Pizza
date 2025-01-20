@@ -1,0 +1,11 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="change-menu-container">
+
+    <form action="" method="post">
+
+        <input type="hidden" name="action" value="changeMenu" />
+        <button class="modern-button" type="submit"  name="page" value="foodItems">Neues Menü</button>
+
+    </form>
+</div>

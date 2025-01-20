@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Pizza base -->
+  <circle cx="100" cy="100" r="95" fill="#F4A460" stroke="#D2691E" stroke-width="4" />
+
+  <!-- Pizza sauce -->
+  <circle cx="100" cy="100" r="80" fill="#FF6347" />
+
+  <!-- Cheese -->
+  <circle cx="100" cy="100" r="70" fill="#FFD700" />
+
+  <!-- Pepperoni slices -->
+  <circle cx="103" cy="83" r="12" fill="#8B0000" />
+  <circle cx="130" cy="112" r="12" fill="#8B0000" />
+  <circle cx="65" cy="137" r="12" fill="#8B0000" />
+
+  <!-- Green peppers -->
+  <path d="M90 50 Q95 55 90 60 T80 50 Z" fill="#228B22" />
+  <path d="M110 150 Q115 155 110 160 T100 150 Z" fill="#228B22" />
+  <path d="M125 55 Q125 60 130 70 T110 55 Z" fill="#228B22" />
+
+  <!-- Mushrooms -->
+  <path d="M50 100 Q55 90 60 100 T50 110 Z" fill="#D2B48C" />
+  <path d="M150 100 Q155 90 160 100 T150 110 Z" fill="#D2B48C" />
+  <path d="M125 100 Q105 90 100 100 T100 110 Z" fill="#D2B48C" />
+</svg>
