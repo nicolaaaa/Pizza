@@ -3,23 +3,25 @@
     Created on : Jan 12, 2025, 4:59:32?PM
     Author     : Nicola
 --%>
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
+<%@ page import="com.mycompany.Util.PageOrder" %>
+<%@ taglib prefix="util" uri="/tlds/util_functions" %>
 
-<img class="nav-image" src="${pageContext.request.contextPath}/images/pizza.svg" alt="Placeholder Image">
 
-<img class="nav-item <c:choose>
-     <c:when test="${currentPage == 'foodItems' || currentPage== null}">active</c:when>
-<c:otherwise>done</c:otherwise>
-</c:choose>" src="${pageContext.request.contextPath}/images/slice_left.svg" alt="Placeholder Image">
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
-<img class="nav-item <c:choose>
-     <c:when test="${currentPage == 'userData'}">active</c:when>
-<c:when test="${currentPage == 'finish' || currentPage == 'end'}">done</c:when>
-<c:otherwise>disabled</c:otherwise>
-</c:choose>" src="${pageContext.request.contextPath}/images/slice_top.svg" alt="Placeholder Image">
+<img class="nav-image" src="${contextPath}/images/pizza.svg" alt="Placeholder Image">
 
-<img class="nav-item <c:choose>
-     <c:when test="${currentPage == 'finish'}">active</c:when>
-<c:when test="${currentPage == 'end'}">done</c:when>
-<c:otherwise>disabled</c:otherwise>
-</c:choose>" src="${pageContext.request.contextPath}/images/slice_bottom.svg" alt="Placeholder Image">
+
+<c:set var="foodItemsClass" value="${util:computeNavImageClass(currentPage, 'foodItems')}" />
+<img class="nav-item ${foodItemsClass}" src="${contextPath}/images/slice_left.svg" alt="Placeholder Image">
+
+<c:set var="userDataClass" value="${util:computeNavImageClass(currentPage, 'userData')}" />
+<img class="nav-item ${userDataClass}" src="${contextPath}/images/slice_top.svg" alt="Placeholder Image">
+
+<c:set var="finishClass" value="${util:computeNavImageClass(currentPage, 'finish')}" />
+<img class="nav-item ${finishClass}" src="${contextPath}/images/slice_bottom.svg" alt="Placeholder Image">
+

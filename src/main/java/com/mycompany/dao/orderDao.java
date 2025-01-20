@@ -82,7 +82,6 @@ public class orderDao extends DatabaseController {
     public void save(Order order) {
 
         System.out.println("SAVE TO DB");
-        System.out.println(order.toString());
 
         UserData customer = order.getCustomer();
         int userId = 0;
@@ -106,7 +105,6 @@ public class orderDao extends DatabaseController {
 
             if (rs.next()) {
                 userId = rs.getInt(1);
-                System.out.println("Generated ID: " + userId);
             }
 
         } catch (SQLException ex) {
@@ -123,7 +121,6 @@ public class orderDao extends DatabaseController {
                 ex.printStackTrace();
             }
         }
-        System.out.println(String.valueOf(userId));
 
         query = "INSERT INTO pizzaorder (userID, status) VALUES (?, ?)";
         try {
@@ -140,7 +137,6 @@ public class orderDao extends DatabaseController {
 
             if (rs.next()) {
                 orderId = rs.getInt(1);
-                System.out.println("Generated ID: " + orderId);
             }
 
         } catch (SQLException ex) {

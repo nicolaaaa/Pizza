@@ -62,37 +62,30 @@ public class Controller extends HttpServlet {
 
             this.getFoodItemsFromOrder(request);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "/WEB-INF/foodItems.jsp");
-            dispatcher.forward(request, response);
+            page = "foodItems";
+            forwardToJSP(request, response, page);
+
         } else if (page.equals("userData")) {
 
             this.addFoodItemsToOrder(request);
+            forwardToJSP(request, response, page);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "/WEB-INF/userData.jsp");
-            dispatcher.forward(request, response);
         } else if (page.equals("finish")) {
 
             this.addUserDataToOrder(request);
+            forwardToJSP(request, response, page);
 
-            RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "/WEB-INF/finish.jsp");
-            dispatcher.forward(request, response);
         } else if (page.equals("end")) {
 
             orderDao.save((Order) request.getSession().getAttribute("order"));
-            RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "/WEB-INF/end.jsp");
-            dispatcher.forward(request, response);
+            forwardToJSP(request, response, page);
+
         } else if (page.equals("orderOverview")) {
 
             ArrayList<Order> orders = orderDao.getOrders();
             request.getSession().setAttribute("orders", orders);
             out.print(orders.toString());
-            RequestDispatcher dispatcher = request.getRequestDispatcher(
-                    "/WEB-INF/orderOverview.jsp");
-            dispatcher.forward(request, response);
+            forwardToJSP(request, response, page);
         }
     }
 
@@ -227,7 +220,7 @@ public class Controller extends HttpServlet {
     }
 
     private void forwardToJSP(HttpServletRequest request, HttpServletResponse response, String pageName) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/" + pageName);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/" + pageName + ".jsp");
         dispatcher.forward(request, response);
     }
 }
