@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.github.javafaker.Faker;
-import com.mycompany.dao.orderDao;
+import com.mycompany.dao.OrderDao;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Locale;
@@ -29,13 +29,13 @@ import java.util.Map;
 @WebServlet(name = "Controller", urlPatterns = {"", "/admin"})
 public class Controller extends HttpServlet {
 
-    private orderDao orderDao;
+    private OrderDao orderDao;
 
     @Override
     public void init() throws ServletException {
 
         super.init();
-        orderDao = new orderDao();
+        orderDao = new OrderDao();
     }
 
     /**
