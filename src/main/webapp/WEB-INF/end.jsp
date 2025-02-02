@@ -7,6 +7,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="webCtrl" class="com.mycompany.ctrl.Controller" scope="application" />
 <%@page import="com.mycompany.model.FoodItem"%>
+<jsp:useBean id="signin" scope="session" class="com.mycompany.ctrl.SigninCtrl" />
 
 
 <!DOCTYPE html>
@@ -29,5 +30,9 @@
 
 
         </div>
+
+        <% if (signin.isLogedIn(request)) {%>
+        <%@ include file="jspf/adminButtons.jspf" %>
+        <%}%>
     </body>
 </html>

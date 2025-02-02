@@ -5,6 +5,8 @@
 <%@ page language="java" import="java.util.*" %>
 <jsp:useBean id="webCtrl" class="com.mycompany.ctrl.Controller" scope="application" />
 <%@page import="com.mycompany.model.FoodItem"%>
+<jsp:useBean id="signin" scope="session" class="com.mycompany.ctrl.SigninCtrl" />
+
 
 <!DOCTYPE html>
 <html>
@@ -59,8 +61,10 @@
 
 
         </div>
-        <%@ include file="jspf/changeMenu.jspf" %>
-        <%@ include file="jspf/orderOverview.jspf" %>
+
+        <% if (signin.isLogedIn(request)) {%>
+        <%@ include file="jspf/adminButtons.jspf" %>
+        <%}%>
 
     </body>
 </html>

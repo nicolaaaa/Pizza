@@ -54,6 +54,12 @@ public class Controller extends HttpServlet {
 
         String page = request.getParameter("page");
 
+        if (request.getParameter("action") != null && request.getParameter("action").equals("logout")) {
+            SigninCtrl.logout(request, response);
+            return; // Stop further processing
+
+        }
+
         if (page == null || page.equals("foodItems")) {
 
             if (getServletContext().getAttribute("menu") == null || (request.getParameter("action") != null && request.getParameter("action").equals("changeMenu"))) {
@@ -64,12 +70,10 @@ public class Controller extends HttpServlet {
 
             page = "foodItems";
             forwardToJSP(request, response, page);
-
         } else if (page.equals("userData")) {
 
             this.addFoodItemsToOrder(request);
             forwardToJSP(request, response, page);
-
         } else if (page.equals("finish")) {
 
             this.addUserDataToOrder(request);

@@ -3,6 +3,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="webCtrl" class="com.mycompany.ctrl.Controller" scope="application" />
+<jsp:useBean id="signin" scope="session" class="com.mycompany.ctrl.SigninCtrl" />
+
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +44,9 @@
 
         </div>
 
-
+        <% if (signin.isLogedIn(request)) {%>
+        <%@ include file="jspf/adminButtons.jspf" %>
+        <%}%>
 
     </body>
 </html>
